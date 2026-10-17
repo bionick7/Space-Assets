@@ -109,7 +109,7 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
     line(length: 100%, stroke: 2pt),
   )
 )[
-  (Commanding Angle size unknown)
+  (Commanding Angel size unknown)
   #image("Pictures/scale.png")
 ]
 

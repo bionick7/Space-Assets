@@ -1,21 +1,21 @@
 # FM 105-1-8X: SPACE ASSETS ON OID
 
 ## LINKS
-itch.io:
-Github:
-Tabletop simulator expansion:
+itch.io: \
+Github: \
+Tabletop simulator expansion: \
 
 ## TODO
-[x] Faction Lore
-[x] Preface
-[x] Title page
-[x] Make Playing cards
-[x] itch page
-[-] Decoy cards (0/4)
-[-] Alpha testing (1/2)
-[-] Beta testing (0/??)
-[-] Modifications to existing units
-[-] Tabletop module (started)
+- [x] Faction Lore
+- [x] Preface
+- [x] Title page
+- [x] Make Playing cards
+- [x] itch page
+- [ ] Decoy cards (0/4)
+- [ ] Alpha testing (1/2)
+- [ ] Beta testing (0/??)
+- [ ] Modifications to existing units
+- [ ] Tabletop module (started)
 
 ## VERSION LOG
 Major release: Only for publication (0 -> 1) \
