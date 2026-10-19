@@ -115,16 +115,14 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
 
 #pagebreak()
 
-#grid(columns: (65%, auto))[
+#place(bottom+right, image("Pictures/FRS-Construction.png", width: 75%))
+#box(width: 75%, fill: white, outset: 10pt)[
   = Federal States-Navy Space Corps (F.S-N.S.C)
   As the dominant space power on Oid, the Intermarine federation boasts a proud space corps to defend its interests in Oid Orbit and beyond. First among these are the manned ships that patrol cis-lunar space, defending the lunar industry that they are born out of. The majority of the departments operations however lies with operating a much more vast number of reconnaissance, communication and navigation assets --- quiet force multipliers and enablers of the state-navies many operations far from shore and, if it is deemed necessary, states-army or expeditionary campaigns. 
 
   #local-outline-row[BLUEBIRD][RECONNAISANCE SATELITE][1]
   #local-outline-row[FEDERAL RELAY STATION][RELAY][2]
   #local-outline-row[COSMOS CLASS][MISSILE BOAT][3]
-][
-  #box(height: 60%, align(center+horizon, image("Pictures/FSA-Launcher.png")))
-  #todo[Feds Artwork doesn't really fit with what is already established and I would rather show the construction of the relay station]
 ]
 
 #pagebreak()
@@ -134,17 +132,17 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
   infobox(
     [BLUEBIRD], 10, [RECONNAISSANCE SAT], 
     type: [Space], 
-    toughness: 2,
+    //toughness: 2,
     quality: 2,
     tags: (underline[Constellation],), 
     weapons:  (
       (
         name: [Multi-Spectral Digital Camera], 
-        target: "All", range: $oo$, accuracy: "x/++", tags: ("Designator", "Barrage(2)"),
+        target: "All", accuracy: "++", tags: ("Designator", "Barrage(2)"),
       ),
       (
         name: [Foliage-penetrating SAR], 
-        target: "All", range: $oo$, accuracy: "x/++", tags: ("Designator",),
+        target: "All", accuracy: "++", tags: ("Designator",),
         notes: [Ignores terrain occlusion]
       ),
     )
@@ -194,11 +192,12 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
   infobox(
     [Federal Relay Station], 0, [RELAY STATION], 
     type: [Space], 
-    toughness: 3, 
-    command: 1,
+    //toughness: 3, 
+    command: 2,
     quality: 4,
     taccom: true,
     notes: [If this is the last or only TACCOM, the player looses immediately #todo[Should have a jammer, maybe a brigade]],
+    weapons:  ()
   )
 
   statblock((
@@ -232,7 +231,7 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
     [COSMOS - CLASS], 30, [MISSILE BOAT], 
     type: [Space],
     tags: (underline[Mobile], todo[What mobile does that mean now?] , [Brigade(2, $ oo$)]),
-    toughness: 10,
+    //toughness: 10,
     quality: 3,
     weapons:  (
       (
@@ -241,7 +240,7 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
       ),
       (
         name: [Space-to-Ground Missiles], 
-        target: "Ground", range: $oo$, accuracy: "4+", strength: "2/2", dice: 4, tags: ("Heavy indirect (5)", "Rear Attack"),
+        target: "Ground", accuracy: "4+", strength: "2/2", dice: 4, tags: ("Heavy indirect (5)", "Rear Attack"),
         notes: [Can only be used in LEO]
       ),
     )
@@ -262,6 +261,7 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
   remark[MISSILE BOAT][
     This ain't a communication relay, or a reconnaissance camera, or even just our automated strategic weapon, automated awaiting a command. This is a fully-crewed, nuclear- powered, fully armed and highly-mobile vessel, akin to its naval brethren. It com more to any orbit and strike down any target. Some may say its an unwise allocation of funds, but I say nobody at space command could lock themselves in the mirror if they retired this thing
   ]
+  todo[To informal?]
 })
 
 #pagebreak()
@@ -280,19 +280,17 @@ Although their crewed space program is barely existent and their launchers limit
 #grid(columns: (60%, auto), column-gutter: 5pt)[
 
   #quote[
-    Fighting on the technological and industrial back-foot means using terrain and stealth to your advantage. It means playing unfair and relying on simple, cheap but reliable equipment with high tolerances and simple, but frequent maintenance. It means cutting corners in manufacturing and accepting the consequences. All these are strategies, that the regency is intimately familiar with, will not get you far in space combat.
+    Fighting on the technological and industrial back-foot means using terrain and stealth to your advantage. It means playing unfair and relying on simple, cheap but reliable equipment with high tolerances and easy, frequent maintenance. It means cutting corners in manufacturing and accepting the consequences. All these are strategies that the regency is intimately familiar with and none of which will get you far in the space domain.
 
-    When the Royal Astronomical Society was elevated from an underfunded academic research group to an expansive government agency with generous funding, their job was straight-forward: Build up a space force that can hold its own and provide strong support to the A.E.F and internal security all over the regency. The nations smartest minds where assembled and challenged to build up the complex knowledge base and high-tech manufacturing industry based on their existing experience from building high-performance aircraft.
+    When the Royal Astronomical Society was elevated from an niche academic research group to an expansive and prestigious government agency with generous funding, their job was straight-forward: Build up a space force that can hold its own against their neighbors and provide strong support to the A.E.F and internal security all over the regency. Some of the nations smartest minds (many of them from the strong domestic aeronautical sector) were assembled and challenged to build up the complex knowledge base and high-tech manufacturing industry.
 
-    To avoid being targeted by asat weapons right away, the first missions where purely scientific or civilian, often in collaboration with the emerging santagarian space program. Some say these early civilian missions where among the SARFEs greatest archievement, providing radio and even television broadcast to far-off tribes and ensuring the Regencies political reach and soft-power.
+    To avoid being targeted and hassled right away, the first missions where purely scientific and civilian in nature, often in collaboration with the emerging Santagarian space program. Although these were not its stated end-goal, some say these early civilian missions where among the SARFEs greatest archievement, providing radio and even television broadcast to far-off rural regions and ensuring the Regency's political reach and soft-power could be heard everywhere.
 
     -- Rayleigh Irving, Federal Intelligence
   ]
 ][
   #box(width: 100%, align(center+horizon, image("Pictures/AEF-Launcher.png")))
 ]
-
-
 
 //As the dominant space power on Oid, the Intermarine federation boasts a proud space corps to defend its interests in Oid Orbit and beyond. First among these are the manned ships that patrol cis-lunar space, defending the lunar industry that they are born out of. The majority of the departments operations however lies with operating a much more vast number of reconnaissance, communication and navigation assets --- quiet force multipliers and enablers of the state-navies many operations far from shore and, if it is deemed necessary, states-army or expeditionary campaigns. 
 
@@ -302,22 +300,22 @@ Although their crewed space program is barely existent and their launchers limit
   picture([EBOSAT-05], ebon-gray, "Pictures/Ebosat.png")
 
   infobox(
-    [EBOSAT-05], 10, [TV SATELLITE],
+    [EBOSAT-05], 15, [RADIO SATELLITE],
     type: [Space], 
-    toughness: 1,
+    //toughness: 1,
     quality: 1,
     tags: ([Brigade(2, $oo$")],),
     weapons: (
       (
         name: [Propaganda Broadcast],
-        target: "Inf/Vec", range: $oo$, accuracy: "++", dice: 1,
-        tags: ("Rally", "Ammo(1)", [Radius($oo$")])
+        target: [Inf/Vec #footnote[Must target a unit with _Brigade_ at its center]], accuracy: "++", dice: 1,
+        tags: ("Rally", "Ammo(2)", [Radius(4")])
       ),
     )
   )
 
-  remark[TV SATELLITE][
-    Originally a civilian television satellite, this one got "drafted" so-to-say into military service to relay communication to far-away forces in the field. Many such re-uses have taken place over the years, going both ways, with some speculating that the satellites are deliberately- designed for both use-cases
+  remark[RADIO SATELLITE][
+    Originally a civilian radio broadcast satellite, this one got "drafted" so-to-say into military service to relay communication to far-away forces in the field. Many such emergency conversions have taken place over the years, going both ways, with some speculating that the satellites are deliberately-designed with both use-cases in mind.
   ]
 
   quote[
@@ -343,14 +341,14 @@ Although their crewed space program is barely existent and their launchers limit
   infobox(
     [A.I.G.U.E], 20, [HIGH-GAIN JAMMER],
     type: [Space], 
-    toughness: 2,
+    //toughness: 2,
     quality: 3,
     tags: (),
     weapons: (
       (
         name: [Ultra-high-gain antenna],
-        target: "Ground", range: $oo$, accuracy: "4+",
-        tags: ("Radius(10\")", ),
+        target: "Ground", accuracy: "++", 
+        tags: ("Radius(6\")", underline[_Ground operated_]),
       ),
       (
         name: [#sym.arrow Ka-Band Comms Jammer],
@@ -362,6 +360,8 @@ Although their crewed space program is barely existent and their launchers limit
       )
     )
   )
+
+  todo[Needs to respond to a new mission]
 
   statblock((
     [Mass], [5870 kg],
@@ -394,14 +394,14 @@ Although their crewed space program is barely existent and their launchers limit
   infobox(
     [L.A.N.C.E.U.R], 25, [KINETIC BOMBARDMENT],
     type: [Space], 
-    toughness: 2,
+    //toughness: 2,
     quality: 1,
     tags: (underline[Sweep],),
     weapons: (
       (
         name: [Kinetic Tungsten Rods],
         target: "Ground", range: $oo$, accuracy: "5+", strength: 10, dice: 2,
-        tags: ("Rear-Attack", "Radius(4\")")
+        tags: ("Rear-Attack", "Radius(4\")", underline[Ground operated])
       ),
     )
   )
@@ -451,7 +451,7 @@ Although their crewed space program is barely existent and their launchers limit
   infobox(
     [STARNET], 15, [COMMUNICATION CONSTELLATION], 
     type: [Space], 
-    toughness: 1,
+    //toughness: 1,
     quality: 3,
     tags: (underline[Rygonet($oo$")],),
     notes: [Rygonet may not be used in the movement phase #todo[Why not, actually ?] \ #todo[Can this have a softkill weapon ?]]
@@ -480,21 +480,21 @@ Although their crewed space program is barely existent and their launchers limit
 #picture([A-2 GODRAY], rygo-red, "Pictures/Godray.png", width: 90%)
 #columns(2, {
   infobox(
-    [A-2 "GOD-RAY"], 30, [ORBITAL LASER], 
+    [A-2 "GOD-RAY"], 25, [ORBITAL LASER], 
     type: [Space], 
-    toughness: 1,
+    //toughness: 1,
     quality: 3,
     tags: (underline[Sweep],),
     weapons: (
       (
         name: ["God Ray" 15 MW Laser],
-        range: $oo$,
-        tags: (underline[Laser],)
+        //range: $oo$,
+        tags: (underline[Laser], underline[Ground operated])
       ),
       (
         name: [#sym.arrow 20m wide-beam sweeping mode],
         target: "All", accuracy: "1+", strength: 1, dice: 2,
-        tags: ("Radius(3)", "Heavy Indirect(0)", "Rear Attack")
+        tags: ("Radius(4)", "Heavy Indirect(0)", "Rear Attack")
       ),
       (
         name: [#sym.arrow 1.2m point-focus mode \ #todo[Not sure how to implement this properly]],
@@ -543,12 +543,11 @@ Although their crewed space program is barely existent and their launchers limit
 
   infobox(
     [COMMANDING ANGEL], 0, [UNCLASSIFIED], 
-    type: [Space], 
-    toughness: 4,
+    type: [Space],
     quality: 4,
     command: 10,
     taccom: true,
-    tags: (underline[Constellation], "Brigade(4, 0\")", underline[Rygonet($oo$\")], "Active Protection(4)"),
+    tags: (underline[Constellation], "Brigade(4, 12\")", underline[Rygonet($oo$\")]),
     notes: [
       Rygonet may be used on planes
 
@@ -557,16 +556,15 @@ Although their crewed space program is barely existent and their launchers limit
   )
 
   remark[UNCLASSIFIED][
-    Other than other Rygolic commanders, like the Node Team, there is evidence that this construct is in font involved in the decision-making process in some way. Its exact role remains a mystery.
-    The shape and the method of its defense suggests a close relation to the" Destroying Angel" (c.f. FM-100-3-8X)
+    Other than other Rygolic commanders, like the Node Team, there is evidence that this construct is in fact involved in the decision-making process in some way and not just a relay. Its exact role remains a mystery.
+    The shape and the method of its defense suggests a close relation to the "Destroying Angel" (c.f. FM-100-3-8X)
   ]
 
   quote[
     They taught us that when we killed the Node team or communications huh or whatever, there is no way in hell that the enemy com still more. While this is accurate 95% of the time, it is also a white lie to preserve the last sliver of morale when fighting these creatures.
-    Once, when I was a young Lieutenant, I remember we took on a small group of them and elegantly dispatched their node team with minimal casualties and watched the entire group stopping in their tracks. Of course we celebrated, drink a lot, let our guard down. some pretended to dance with the unresponsive constructs. Then, a half hour later, one of- them walkers wiped out the entire company out of nowhere. I only escaped, half drunk, because I went peeing in the woods and
-    stayed hidden there 
+    Once, when I was a young Lieutenant, I remember when we took on a small group of them. We elegantly disposed of their node team with minimal casualties and watched the entire group stopping in their tracks. Of course we celebrated, drank a lot, let our guard down. Some jesters pretended to dance with the unresponsive constructs. Then, a half hour later, one of the walkers sprang up wiped out the entire company out of nowhere. I had the louck of being in the process of relieving my bladder in the cover of the woods, so only I escaped.
     
-    -- Lt. Connor Jasper, 15th Federal Expeditionary
+    -- Mj. Connor Jasper, 15th Federal Expeditionary
   ]
   
   statblock((
@@ -600,7 +598,7 @@ Not many of the current inhabitants of the baronies will never have heard or tho
   infobox(
     [RELIC 59XX], 5, [ANCIENT RELAY], 
     type: [Space], 
-    toughness: 3,
+    //toughness: 3,
     quality: 1,
     tags: ([Brigade(2, $oo$")],),
   )
@@ -657,6 +655,7 @@ Space units are also not identified until they reveal themselves by activating. 
 
 == Cards
 Since space untis have no position on the board, they are not represented by models or blinds, but by cards. At the beginning of the turn, take the relevent card into your hand without revealing them. When a spce unit enters the board -- either during depolyment or at the beginning of a round through #underline[Sweep] or #underline[Constellation], place its card face-down on your depolyment edge. To reveal a space units actions, turn it upside down. A player may place the revealed space unit somewhere specific on the board to indicate its area of effect after activation. This makes tracking which units have activated easier.
+#todo[TACCOMS reaveal when activating]
 
 //have an additional element of abstraction, I suggest to use cards to represent space units. Before the space units are identified, the card is laid down face-down next to the board and is revealed as the unit is revealed. The orbit of the units can be indicated either by placing the cards/blinds on certain dedicated spots next to the board or by tokens.
 
@@ -696,10 +695,17 @@ _The short usable windows of low-orbit craft can be mitigated by having a large 
 Works similarly #underline[_Sweep_], but the round does not need to be decided beforehand. Instead, this unit can be called in before any round starts. It "dies" all-the-same at the end of that round.
 
 == Mobile
+#box(stroke: red)[Must be reworked]
+
 _This unit is designed to move between orbits frequently and has no designated orbit and is designated as _Space(\*)_ _
 
 The orbit of this unit is chosen when it is deployed.
 If the unit is deployed in LEO and has neither #underline[_Sweep_], not #underline[_Constellation_] as tags, the unit gains the #underline[_Sweep_] tag. In this case, the unit does not have to be revealed.
+
+== Ground operations
+_This unit has no agency of its own and must be operated from afar_
+
+This weapon can only be used in reaction to a _Fire Mission_. It doesn't have to be a _Light Indirect_ or _Heavy Indirect_ weapon to do this.
 
 == Laser
 c.f. *FM 100-3-8X - THE NEW RYGOLIC HOST*
