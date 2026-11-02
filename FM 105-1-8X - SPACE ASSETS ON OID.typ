@@ -1,5 +1,6 @@
 #import "template.typ": *
-#import "@preview/dashy-todo:0.1.3": *
+//#import "@preview/dashy-todo:0.1.3": *
+#let todo(x) = []
 
 #page(
   header: grid(columns: (1fr, auto), 
@@ -25,7 +26,7 @@
 
 #page(place(dx: 30%, dy: 25%, image("Pictures/BRUNBOK.png")))
 
-#outline(title: "TODOs", target: figure.where(kind: "todo"))
+//#outline(title: "TODOs", target: figure.where(kind: "todo"))
 
 #page(
   footer: [i],
@@ -129,24 +130,24 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
 
 #picture([BLUEBIRD], feds-blue, "Pictures/Bluebird.png")
 #columns(2, {
-  infobox(
+  [#infobox(
     [BLUEBIRD], 10, [RECONNAISSANCE SAT], 
     type: [Space], 
     //toughness: 2,
     quality: 2,
-    tags: (underline[Constellation],), 
+    special-rules: (underline[Constellation],), 
     weapons:  (
       (
         name: [Multi-Spectral Digital Camera], 
-        target: "All", accuracy: "++", tags: ("Designator", "Barrage(2)"),
+        target: "All", accuracy: "++", special-rules: ("Designator", "Barrage(2)"),
       ),
       (
         name: [Foliage-penetrating SAR], 
-        target: "All", accuracy: "++", tags: ("Designator",),
-        notes: [Ignores terrain occlusion]
+        target: "All", accuracy: "++", special-rules: ("Designator",),
+        notes: [Ignores occlusion]
       ),
     )
-  )
+  )<block:bluebird>]
 
   remark[RECONNAISSANCE SAT][
     One of the first things new astronomers learn is how to distinguish real stars from the reflections that Bluebird satellites are making near dusk or dawn, such tangible is their omnipresence.
@@ -196,7 +197,8 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
     command: 2,
     quality: 4,
     taccom: true,
-    notes: [If this is the last or only TACCOM, the player looses immediately #todo[Should have a jammer, maybe a brigade]],
+    special-rules: ([Brigade(3, $oo$")],),
+    notes: [If this is the last or only TACCOM, the player looses immediately /*#todo[Should have a jammer, maybe a brigade]*/],
     weapons:  ()
   )
 
@@ -230,18 +232,20 @@ Since they are out of sight and mostly out of mind, it is easy to forget how spa
   infobox(
     [COSMOS - CLASS], 30, [MISSILE BOAT], 
     type: [Space],
-    tags: (underline[Mobile], todo[What mobile does that mean now?] , [Brigade(2, $ oo$)]),
+    special-rules: (underline[Short pass],),
+    notes: [In addition to the turn of entry (through #underline[Short pass]), note a cardinal direction for this craft (North, East, South or West). All of the shots from this will target the arc that is facing in this direction],
     //toughness: 10,
     quality: 3,
     weapons:  (
       (
-        name: [75 dBW EW suite #todo[Maybe replace it with a dazzler]], 
-        target: "Space(orbit)", range: [--], accuracy: "++", tags: ("Multigun", "Adds 4 pin to target",),
+        name: [Sensor Dazzler], 
+        target: "Space", range: [--], accuracy: "++", special-rules: ("Multigun", ),
+        notes: [Adds 4 pin to target]
       ),
       (
         name: [Space-to-Ground Missiles], 
-        target: "Ground", accuracy: "4+", strength: "2/2", dice: 4, tags: ("Heavy indirect (5)", "Rear Attack"),
-        notes: [Can only be used in LEO]
+        target: "Vec/Inf", accuracy: "4+", strength: [14/1+], dice: 1, special-rules: ("Barrage(3)", "Guided Missile (5)", "Ammo(3)", "Shaped charge", underline[Ground operated]),
+        notes: []
       ),
     )
   )
@@ -304,12 +308,12 @@ Although their crewed space program is barely existent and their launchers limit
     type: [Space], 
     //toughness: 1,
     quality: 1,
-    tags: ([Brigade(2, $oo$")],),
+    special-rules: ([Brigade(2, $oo$")],),
     weapons: (
       (
         name: [Propaganda Broadcast],
         target: [Inf/Vec #footnote[Must target a unit with _Brigade_ at its center]], accuracy: "++", dice: 1,
-        tags: ("Rally", "Ammo(2)", [Radius(4")])
+        special-rules: ("Rally", "Ammo(2)", [Radius(4")])
       ),
     )
   )
@@ -343,12 +347,12 @@ Although their crewed space program is barely existent and their launchers limit
     type: [Space], 
     //toughness: 2,
     quality: 3,
-    tags: (),
+    special-rules: (),
     weapons: (
       (
         name: [Ultra-high-gain antenna],
         target: "Ground", accuracy: "++", 
-        tags: ("Radius(6\")", underline[_Ground operated_]),
+        special-rules: ("Radius(6\")", underline[_Ground operated_]),
       ),
       (
         name: [#sym.arrow Ka-Band Comms Jammer],
@@ -396,12 +400,12 @@ Although their crewed space program is barely existent and their launchers limit
     type: [Space], 
     //toughness: 2,
     quality: 1,
-    tags: (underline[Sweep],),
+    special-rules: (underline[Short pass],),
     weapons: (
       (
         name: [Kinetic Tungsten Rods],
         target: "Ground", range: $oo$, accuracy: "5+", strength: 10, dice: 2,
-        tags: ("Rear-Attack", "Radius(4\")", underline[Ground operated])
+        special-rules: ("Rear-Attack", "Radius(4\")", underline[Ground operated])
       ),
     )
   )
@@ -453,7 +457,7 @@ Although their crewed space program is barely existent and their launchers limit
     type: [Space], 
     //toughness: 1,
     quality: 3,
-    tags: (underline[Rygonet($oo$")],),
+    special-rules: (underline[Rygonet($oo$")],),
     notes: [Rygonet may not be used in the movement phase #todo[Why not, actually ?] \ #todo[Can this have a softkill weapon ?]]
   )
 
@@ -484,17 +488,17 @@ Although their crewed space program is barely existent and their launchers limit
     type: [Space], 
     //toughness: 1,
     quality: 3,
-    tags: (underline[Sweep],),
+    special-rules: (underline[Short pass],),
     weapons: (
       (
         name: ["God Ray" 15 MW Laser],
         //range: $oo$,
-        tags: (underline[Laser], underline[Ground operated])
+        special-rules: (underline[Laser], underline[Ground operated])
       ),
       (
-        name: [#sym.arrow 20m wide-beam sweeping mode],
+        name: [#sym.arrow 20m wide-beam Short passing mode],
         target: "All", accuracy: "1+", strength: 1, dice: 2,
-        tags: ("Radius(4)", "Heavy Indirect(0)", "Rear Attack")
+        special-rules: ("Radius(4)", "Heavy Indirect(0)", "Rear Attack")
       ),
       (
         name: [#sym.arrow 1.2m point-focus mode \ #todo[Not sure how to implement this properly]],
@@ -547,7 +551,7 @@ Although their crewed space program is barely existent and their launchers limit
     quality: 4,
     command: 10,
     taccom: true,
-    tags: (underline[Constellation], "Brigade(4, 12\")", underline[Rygonet($oo$\")]),
+    special-rules: (underline[Constellation], "Brigade(4, 12\")", underline[Rygonet($oo$\")]),
     notes: [
       Rygonet may be used on planes
 
@@ -600,7 +604,7 @@ Not many of the current inhabitants of the baronies will never have heard or tho
     type: [Space], 
     //toughness: 3,
     quality: 1,
-    tags: ([Brigade(2, $oo$")],),
+    special-rules: ([Brigade(2, $oo$")],),
   )
 
   remark[ANCIENT RELAY][
@@ -635,7 +639,21 @@ Not many of the current inhabitants of the baronies will never have heard or tho
 
 = Space Asset Rules <app:general-rules>
 
+#align(center, stack(dir:rtl, 
+  line(length: 30%, stroke: 1.5pt, start: (0pt, 5pt)),
+  text(size: 13pt, font: serif-font)[*SPACECRAFFT*],
+  line(length: 30%, stroke: 1.5pt, start: (0pt, 5pt)),
+))
+Space untis have no position on the board and are considered to be $oo$" from each other unit on the battlefield, including other spacecraft. Featured below is the federal reconnaissance satellite "Bluebird"
+#align(center, line(length: 100%, stroke: 1.5pt))
+
+#image("Pictures/Bluebird.png")
+
 #columns(2)[
+
+#context {
+  query(<block:bluebird>).at(0)
+}
 
 /*== Orbits
 // TODO: Is this necaissary?
@@ -645,21 +663,25 @@ A Unit with the _Space(X)_ identifier is a space unit. Space units do not have a
 / GEO: Geostationary orbit (\~36 000 km and roughly circular and equatorial).
 / HEO: High orbit with their apoapsis above even GEO, such as Tundra orbits. None of the current units make use of this orbit, but it could be used by #underline[Mobile] units or future expansions
 
-The orbit is only used for targeting, although LEO units should logically either have the #underline[_Sweep_] or #underline[_Constellation_] tag. */
+The orbit is only used for targeting, although LEO units should logically either have the #underline[_Short pass_] or #underline[_Constellation_] tag. */
+
+
 
 == General rules
-Space units do not have height, spotting or movement characteristics.
-Space units can draw line-of-sight to all units, but cannot spot without use of a designator weapon, similarly to planes. This means that TACCOM space units can also call missions on any unit on the board.
+Space units do have unit cards, but they don't have height, spotting, movement or toughness. The only direct value they share with ground units is quality, as they may receive pin (represening dazzling, interference etc.). Space units may have special rules, either from the core rulebook or 
+Space units can draw line-of-sight to all units, but cannot spot without use of a designator weapon, similarly to planes. This means that TACCOM space units can call missions on any unit on the board, but light indirect may not use space units to share line-of-sight
 
-Space units are also not identified until they reveal themselves by activating. /*However, attacks against them do not suffer from blind-fire, even if the unit is not identified.*/
+Space units can generally not be spotted. Instead the are revealed by activating in the fire phase or calling missions or brigades.
 
 == Cards
-Since space untis have no position on the board, they are not represented by models or blinds, but by cards. At the beginning of the turn, take the relevent card into your hand without revealing them. When a spce unit enters the board -- either during depolyment or at the beginning of a round through #underline[Sweep] or #underline[Constellation], place its card face-down on your depolyment edge. To reveal a space units actions, turn it upside down. A player may place the revealed space unit somewhere specific on the board to indicate its area of effect after activation. This makes tracking which units have activated easier.
-#todo[TACCOMS reaveal when activating]
+Since space units have no position associated with them, they are not represented by models or blinds, but by cards. At the beginning of the turn, take the relevent card into your hand without revealing them. When a spce unit enters the board -- either during depolyment or at the beginning of a round through #underline[Short pass] or #underline[Constellation], place its card face-down on your depolyment edge. To reveal a space units actions, turn it upside down.
 
+A player may place the revealed space unit somewhere specific on the board to indicate its area of effect after activation. This makes tracking which units have activated easier.
 //have an additional element of abstraction, I suggest to use cards to represent space units. Before the space units are identified, the card is laid down face-down next to the board and is revealed as the unit is revealed. The orbit of the units can be indicated either by placing the cards/blinds on certain dedicated spots next to the board or by tokens.
 
-Decoy space units can be purchased as usual with 5pt per decoy. Decoys can enter the battlefield, leave and be "revealed" at any time.
+== Decoys
+
+Decoy space units can be purchased as usual with 5pt per decoy. Decoys can enter or leave the battlefield, or be "revealed" at any time.
 
 /*== Targeting Space Units:
 A weapon that targets a space asset may specify the orbit in parenthesis, i.e. _Space(LEO)_. If shot from space, it may also specify _Space(orbit)_, indicating that the target must be in the same orbit as the attacker. A weapon that targets _"All"_ still only targets, _Vec._, _Inf._ and _Air_ units, not Space assets.*/
@@ -684,25 +706,25 @@ This appendix section describes the underlined special rules introduced by the s
 }
 
 #columns(2)[
-== Sweep
+== Short pass
 _Space assets in a low orbit are only in view for a short time before disappearing beyond the horizon. Since the time when the unit passes overhead can be predicted precisely, attacks can be synchronized to the window of appearance._
 
-A unit with the #underline[_Sweep_] tag will only be in view for a single round. The player decides before the game starts which round the unit will appear on. This should be noted privately on e.g. the unit list or the underside of the card. The unit enters the field like reinforcements would on that round. At the end of the round, the unit leaves the game, getting no more actions and providing no more benefits, as if it had been killed.
+A unit with the #underline[_Short pass_] tag will only be in view for a single round. The player decides before the game starts which round the unit will appear on. This should be noted privately on e.g. the unit list or the underside of the card. The unit enters the field like reinforcements would on that round. At the end of the next support phase, the unit leaves the game, getting no more actions and providing no more benefits, as if it had been killed.
 
 == Constellation
 _The short usable windows of low-orbit craft can be mitigated by having a large constellation of enough units distributed around the world, such that at least one of them is always in view of any point on the ground._
 
-Works similarly #underline[_Sweep_], but the round does not need to be decided beforehand. Instead, this unit can be called in before any round starts. It "dies" all-the-same at the end of that round.
+Works similarly #underline[_Short pass_], but the round does not need to be decided beforehand. Instead, this unit can be called in before any round starts. It "dies" all-the-same at the end of that round.
 
-== Mobile
+/*== Mobile
 #box(stroke: red)[Must be reworked]
 
 _This unit is designed to move between orbits frequently and has no designated orbit and is designated as _Space(\*)_ _
 
 The orbit of this unit is chosen when it is deployed.
-If the unit is deployed in LEO and has neither #underline[_Sweep_], not #underline[_Constellation_] as tags, the unit gains the #underline[_Sweep_] tag. In this case, the unit does not have to be revealed.
+If the unit is deployed in LEO and has neither #underline[_Short pass_], not #underline[_Constellation_] as special rules, the unit gains the #underline[_Short pass_] tag. In this case, the unit does not have to be revealed.*/
 
-== Ground operations
+== Ground operated
 _This unit has no agency of its own and must be operated from afar_
 
 This weapon can only be used in reaction to a _Fire Mission_. It doesn't have to be a _Light Indirect_ or _Heavy Indirect_ weapon to do this.
@@ -710,8 +732,9 @@ This weapon can only be used in reaction to a _Fire Mission_. It doesn't have to
 == Laser
 c.f. *FM 100-3-8X - THE NEW RYGOLIC HOST*
 
-== Rygonet(X")
-c.f. *FM 100-3-8X - THE NEW RYGOLIC HOST*
+== Rygonet
+c.f. *FM 100-3-8X - THE NEW RYGOLIC HOST* \
+Other than the standard rygonet rules, a spacecraft with #underline[Rygonet] does not allow other close units to use Rygonet, but instead may lend or receive action through Rygonet itself. Spacecraft without this rule may not benefit from regular Rygonet.
 ]
 
 #pagebreak()

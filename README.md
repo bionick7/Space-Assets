@@ -13,12 +13,11 @@ This is an expansion for Firlock 198X base game (https://drekfortmdc.net/) that 
 - [x] Title page
 - [x] Make Playing cards
 - [x] itch page
-- [ ] Decoy cards (0/4)
+- [x] Decoy cards (4/4)
 - [ ] Alpha testing (1/2)
 - [ ] Beta testing (0/??)
 - [ ] Modifications to existing units
 - [ ] Tabletop module (started)
-- [ ] Reveal points on cards
 
 ## VERSION LOG
 Major release: Only for publication (0 -> 1) \
@@ -27,7 +26,9 @@ Patch: Typo, clarification etc. that are not meant to change the rules \
 
 ### ALPHA TESTING
 V0.3.0:
-- 
+- Adjustment: COSMOS Class, FRS
+- Made designators more useful
+- Elaborated Rygonet rules
 
 V0.2.0:
 - Elaborated on blinds

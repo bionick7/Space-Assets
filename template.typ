@@ -23,7 +23,7 @@
   text(size: 9pt, font: sans-font)[FEDERAL STATES-ARMY - DREKFORT M.D.C.]
 }
 
-#let infobox(name, pts, designation, taccom: false, tags: (), weapons: (), notes: none, ..unit) = [#rect(width: 100%)[
+#let infobox(name, pts, designation, taccom: false, special-rules: (), weapons: (), notes: none, ..unit) = [#rect(width: 100%)[
   // First block: Name & designaiton
   #set align(center)
   #set text(font: sans-font)
@@ -34,12 +34,12 @@
   #designation \ 
   #align(center, line(length:90%))
   
-  // Second block: Stats & tags
+  // Second block: Stats & special-rules
   #set text(font: serif-font)
   #set par(justify: false, first-line-indent: 0pt)
   #(unit.type, stat(pre:"H", unit, "heights"), stat(pre:"S", unit, "strength", suf:"\""), stat(pre:"M", unit, "movement", suf:"\""), stat(pre:"Q", unit, "quality"), stat(pre:"T", unit, "toughness"), stat(pre:"C", unit, "command")).filter(x => x != none).join(", ") \
-  #if (tags.len() > 0) {
-    tags.map(x => emph(x)).join(", ")
+  #if (special-rules.len() > 0) {
+    special-rules.map(x => emph(x)).join(", ")
     linebreak()
   }
   #align(center, line(length:90%))
@@ -60,8 +60,8 @@
     let weapon-stats = (weapon.at("target", default: none), stat(pre:"R", weapon, "range", suf:"\""), stat(pre:"A", weapon, "accuracy"), stat(pre:"S", weapon, "strength"), stat(pre:"D", weapon, "dice"))
     let weapon-infos = (
       ..weapon-stats,
-      if ("tags" in weapon and weapon.tags.len() > 0) {
-        weapon.tags.map(x => emph(x)).join(", ")
+      if ("special-rules" in weapon and weapon.special-rules.len() > 0) {
+        weapon.special-rules.map(x => emph(x)).join(", ")
       },
       if ("notes" in weapon) {
         emph(weapon.notes)
@@ -183,6 +183,12 @@ INVULNERABLE
       \
       #upper(it.body)
     ]
+  }
+
+  show heading.where(depth: 2): it => {
+    set align(center)
+    set text(font: serif-font, size: 12pt, weight: "bold")
+    block(upper(it.body))
   }
 
   set par(justify: true, first-line-indent: 40pt)
